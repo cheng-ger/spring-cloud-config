@@ -1,4 +1,38 @@
-age: 18
-sex: man
-username: cyl
+appname: product
 env: dev
+server:
+  port: 60001
+
+spring:
+  application:
+    name: ${appname}
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 111111
+    url: jdbc:mysql://127.0.0.1:3306/product
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+
+mybatis:
+  #此标签配置  对应的sql.xml
+  mapper-locations: classpath:com/cyl/it/product/dao/*Dao.xml
+  #此标签配置  对应的sql程序接口 interface
+  type-aliases-package: com/cyl/it/product/dao
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
