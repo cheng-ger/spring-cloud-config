@@ -16,6 +16,11 @@ spring:
       min-idle: 1
       max-active: 20
       test-on-borrow: true
+  rabbitmq:
+    host: 192.168.99.100
+    username: guest
+    password: guest
+    port: 5672    
 
 eureka:
   client:
